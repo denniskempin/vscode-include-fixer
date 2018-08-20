@@ -66,7 +66,7 @@ async function askUserToSelectHeader(headers: CIFHeaders): Promise<CIFHeaders | 
     const selected_item = await vscode.window.showQuickPick(items);
     if (!selected_item) { return undefined; }
     headers.HeaderInfos = headers.HeaderInfos.filter((info: any) => {
-        return info.QualifiedName === selected_item.label;
+        return info.Header === selected_item.detail;
     });
     return headers;
 }
