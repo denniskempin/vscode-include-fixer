@@ -9,7 +9,7 @@
         "url": "https://github.com/denniskempin/vscode-include-fixer"
     },
     "engines": {
-        "vscode": "^1.26.0"
+        "vscode": "^1.20.0"
     },
     "categories": [
         "Other"
