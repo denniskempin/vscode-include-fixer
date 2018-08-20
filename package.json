@@ -2,7 +2,7 @@
     "name": "vscode-include-fixer",
     "displayName": "clang-include-fixer",
     "description": "clang-include-fixer integration for vscode",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "publisher": "denniskempin",
     "repository": {
         "type": "GIT",
@@ -19,10 +19,10 @@
     ],
     "main": "./out/extension",
     "contributes": {
-        "configuration":{
+        "configuration": {
             "title": "VSCode Include Fixer configuration",
             "properties": {
-                "clang-include-fixer.binary": { 
+                "clang-include-fixer.binary": {
                     "type": "string",
                     "default": "clang-include-fixer",
                     "description": "Path to clang-include-fixer binary.",
