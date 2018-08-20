@@ -2,7 +2,7 @@
     "name": "vscode-include-fixer",
     "displayName": "clang-include-fixer",
     "description": "clang-include-fixer integration for vscode",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "denniskempin",
     "repository": {
         "type": "GIT",
