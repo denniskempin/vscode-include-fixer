@@ -16,4 +16,4 @@ If 'clang-include-fixer' is not on your path, you can specify a full path or dif
 
     "clang-include-fixer.binary": "/path/to/clang-include-fixer"
 
-[0]: clang-include-fixer][https://clang.llvm.org/extra/include-fixer.html
+[0]:[https://clang.llvm.org/extra/include-fixer.html
