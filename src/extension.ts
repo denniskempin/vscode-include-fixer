@@ -22,8 +22,16 @@ function callCIF(args: string[], document: vscode.TextDocument): Promise<string>
         const full_args = args.concat(["-stdin", path.basename(document.fileName)]);
         const params = { cwd: path.dirname(document.fileName) };
         let process = cp.execFile(binary, full_args, params, (err, stdout, stderr) => {
-            if (stderr.length > 0) {
-                reject(stderr);
+            if (err) {
+                // todo: Add 'not found' error message for windows as well.
+                const code = (err as any).code;
+                if (code === "ENOENT") {
+                    err.message = "binary not found: " + binary;
+                }
+                if (stderr) {
+                    err.message += "\nSTDERR: " + stderr;
+                }
+                reject(err);
                 return;
             }
             resolve(stdout);
@@ -109,7 +117,7 @@ export function activate(context: vscode.ExtensionContext) {
         const selected_symbol = getSelectedSymbol(editor);
         if (!selected_symbol) { return; }
         insertIncludeForSymbol(selected_symbol, editor).catch((error) => {
-            vscode.window.showErrorMessage("clang-include-fixer error: " + error);
+            vscode.window.showErrorMessage("clang-include-fixer error: " + error.message);
         });
     });
     context.subscriptions.push(disposable);
